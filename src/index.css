@@ -1,0 +1,129 @@
+:root {
+  /* Color Palette */
+  --bg-primary: #0a192f;
+  --bg-secondary: #002b36;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --accent: #64ffda;
+  --accent-glow: rgba(100, 255, 218, 0.1);
+
+  /* Fonts */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.section {
+  padding: 5rem 0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Alternating colors */
+.section:nth-of-type(even) {
+  background-color: #112240;
+  /* Lighter navy than primary, good for contrast */
+}
+
+/* Adjust secondary color var usage for even stronger contrast if needed */
+
+.section-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 1px;
+  background-color: var(--bg-secondary);
+  margin-left: 20px;
+  border-bottom: 1px solid var(--text-secondary);
+  opacity: 0.3;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-glow);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: 5px;
+}
+
+/* Animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
