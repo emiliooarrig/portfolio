@@ -33,6 +33,12 @@ El proyecto es una aplicación web de una sola página (SPA) construida con tecn
   ├── index.css      # Estilos globales y variables de tema
   └── main.jsx       # Punto de entrada de la aplicación React
 ```
+## Agradecimientos especiales.
+
+Para poder desplegar este proyecto, se usa el servicio de GitHub Pages y el paquete gh-pages.
+Toda la documentación y tutorial para desplegar una página de React se encuentra en el repositorio de `@gitname/gh-pages`.
+
+Para más información sobre gh-pages, visita su repositorio en GitHub: [https://github.com/gitname/gh-pages](https://github.com/gitname/gh-pages)
 
 ## 📬 Contacto
 
@@ -40,4 +46,4 @@ Si tienes alguna pregunta o propuesta, no dudes en contactarme:
 *   **Email**: guzmanemi@proton.me
 
 ---
-*Hecho con ❤️ por Emilio Guzmán en React.*
+Hecho con ❤️ por Emilio Guzmán en React.
