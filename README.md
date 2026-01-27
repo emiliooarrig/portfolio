@@ -38,7 +38,7 @@ El proyecto es una aplicación web de una sola página (SPA) construida con tecn
 Para poder desplegar este proyecto, se usa el servicio de GitHub Pages y el paquete gh-pages.
 Toda la documentación y tutorial para desplegar una página de React se encuentra en el repositorio de `@gitname/gh-pages`.
 
-Para más información sobre gh-pages, visita su repositorio en GitHub: [https://github.com/gitname/gh-pages](https://github.com/gitname/gh-pages)
+Para más información sobre gh-pages, visita su repositorio en GitHub: [https://github.com/gitname/react-gh-pages](https://github.com/gitname/react-gh-pages)
 
 ## 📬 Contacto
 
