@@ -145,7 +145,6 @@ const App = () => {
                   <div className="skill-tags">
                     <span className="skill-tag">Power BI</span>
                     <span className="skill-tag">Visualización de Datos</span>
-                    <span className="skill-tag">Análisis Estadístico</span>
                   </div>
                 </div>
 
@@ -156,7 +155,7 @@ const App = () => {
                     <span className="skill-tag"> Javascript  </span>
                     <span className="skill-tag">Git & GitHub</span>
                     <span className="skill-tag"> APIs REST </span>
-                    <span className="skill-tag"> Desarrollo web </span>
+                    <span className="skill-tag"> Desarrollo web fullstack </span>
                   </div>
                 </div>
 
@@ -229,14 +228,16 @@ const App = () => {
                       <a href="#">🔗</a>
                     </div>
                   </div>
-                  <h3 className="project-title"> Gestor de contraseñas (En desarrollo) </h3>
+                  <h3 className="project-title"> Proceso ETL en dataset </h3>
                   <p className="project-desc">
-                    Construí un gestor de contraseñas en React con una base de datos en Firebase para guardar mis contraseñas y contraseñas de contraseñas.
+                    Manipulé y transformé datos de un dataset sobre encuestas de salud (usando datos públicos del IMSS), donde 
+                    detecté y transformé datos siguiendo normasl de negocio establecidas; garantizando la integridad de los datos 
+                    y aspectos importantes para garantizar la calidad de los mismos
                   </p>
                   <ul className="project-tech-list">
-                    <li>React</li>
-                    <li>Firebase</li>
-                    <li>React Router</li>
+                    <li> SQL </li>
+                    <li> OracleSQLDeveloper</li>
+                    <li> DataCleaner </li>
                   </ul>
                 </div>
               </div>
