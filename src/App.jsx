@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import './App.css';
 
 const FadeInSection = ({ children }) => {
   const [isVisible, setVisible] = useState(false);
@@ -35,10 +36,12 @@ const FadeInSection = ({ children }) => {
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     setActiveSection(id);
+    setIsMenuOpen(false);
   };
 
   const navItems = {
@@ -53,7 +56,16 @@ const App = () => {
       <nav className="navbar">
         <div className="container nav-content">
           <div className="logo" onClick={() => scrollToSection('home')}>EG.</div>
-          <ul className="nav-links">
+
+          <button
+            className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className="hamburger"></span>
+          </button>
+
+          <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
             {Object.keys(navItems).map((key, index) => (
               <li key={key}>
                 <button
@@ -84,7 +96,8 @@ const App = () => {
                 Transformo datos crudos en conocimiento accionable.
               </p>
               <div className="hero-cta">
-                <button className="btn" onClick={() => scrollToSection('projects')}>Mira mi trabajo</button>
+                <button className="btn" onClick={() => scrollToSection('contact')}> Contáctame
+                </button>
               </div>
             </FadeInSection>
           </div>
@@ -106,6 +119,11 @@ const App = () => {
                     Hoy en día, he tenido el privilegio de trabajar en proyectos universitarios que simulan la infraestructura real para el
                     <span className="accent-text"> procesamiento masivo de datos</span> y la <span className="accent-text">visualización</span>.
                     Mi enfoque principal es construir productos accesibles y experiencias digitales para una variedad de clientes.
+                  </p>
+                  <br />
+                  <p>
+                    Desarrollo pipelines ETL, consultas SQL optimizadas y dashboards en Power BI.
+                    Actualmente busco oportunidades como Data Engineer o BI Developer.
                   </p>
                 </div>
                 <div className="about-tech">
@@ -187,17 +205,24 @@ const App = () => {
                       <a href="#">🔗</a>
                     </div>
                   </div>
-                  <h3 className="project-title"> Análisis de datos web </h3>
+                  <h3 className="project-title"> Uber Data Analytics</h3>
                   <p className="project-desc">
-                    Desarrolle un pipeline ETL en Python para extraer datos de una base de datos SQL Server y
-                    analizarlos con pandas y numpy. Proporcionando analíticas como mapas de calor, tracking de eventos y
-                    análisis de procedencia.
+                    Desarrollé una infraestructura completa de datos sobre BigQuery para el análisis de viajes de Uber.
+                    A través de este proyecto, implementé flujos de ETL (Extract, Transform, Load) diseñados para maximizar
+                    el rendimiento y reducir costos de consulta.
                   </p>
                   <ul className="project-tech-list">
-                    <li>Power BI</li>
+                    <li> Google Cloud</li>
                     <li>Python</li>
-                    <li>Excel</li>
+                    <li> BigQuery</li>
                   </ul>
+                  <a href="#" className="project-link-btn">
+                    Ver más
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
                 </div>
 
                 {/* Project 2 */}
@@ -218,6 +243,13 @@ const App = () => {
                     <li>PostgreSQL</li>
                     <li>Telegram</li>
                   </ul>
+                  <a href="#" className="project-link-btn">
+                    Ver más
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
                 </div>
 
                 {/* Project 3 */}
@@ -230,8 +262,8 @@ const App = () => {
                   </div>
                   <h3 className="project-title"> Proceso ETL en dataset </h3>
                   <p className="project-desc">
-                    Manipulé y transformé datos de un dataset sobre encuestas de salud (usando datos públicos del IMSS), donde 
-                    detecté y transformé datos siguiendo normasl de negocio establecidas; garantizando la integridad de los datos 
+                    Manipulé y transformé datos de un dataset sobre encuestas de salud (usando datos públicos del IMSS), donde
+                    detecté y transformé datos siguiendo normas de negocio establecidas; garantizando la integridad de los datos
                     y aspectos importantes para garantizar la calidad de los mismos
                   </p>
                   <ul className="project-tech-list">
@@ -239,12 +271,61 @@ const App = () => {
                     <li> OracleSQLDeveloper</li>
                     <li> DataCleaner </li>
                   </ul>
+                  <a href="#" className="project-link-btn">
+                    Ver más
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </FadeInSection>
           </div>
         </section>
 
+        <section id="experience" className='section experience-section'>
+
+          <div className="container">
+            <FadeInSection>
+              <h2 className="section-title"><span className="section-number">04.</span> Experiencia Laboral</h2>
+              <div className="experience-content">
+                <div className="experience-card">
+                  <h3 className="experience-title"> Digital Business Operations Manager </h3>
+                  <h4 className="experience-company"> Vértice México </h4>
+                  <h4 className="experience-date"> Mayo 2024 - Junio 2025</h4>
+                  <p className="experience-desc">
+                    Lideré la gestión de operaciones digitales, optimizando procesos de negocio y asegurando la calidad de los datos.
+                    Implementé soluciones tecnológicas para mejorar la eficiencia operativa de procesos dentro del programa.
+                  </p>
+                  <ul className="experience-tech-list">
+                    <li> Microsoft Excel </li>
+                    <li> Power BI </li>
+                    <li> MailChimp </li>
+                  </ul>
+                </div>
+
+                <div className="experience-card">
+                  <h3 className="experience-title"> Desarrollador Freelance </h3>
+                  <h4 className="experience-company"> Independiente </h4>
+                  <h4 className="experience-date"> Diciembre 2023 - Actualidad </h4>
+                  <p className="experience-desc">
+                    Desarrollé soluciones tecnológicas para diversos clientes, implementando herramientas personalizadas para automatizar tareas.
+                    Desarrollé el ciclo completo de desarrollo de software, desde la recolección de requisitos hasta la implementación y mantenimiento de sitios web.
+                  </p>
+                  <ul className="experience-tech-list">
+                    <li> SQL </li>
+                    <li> HTML</li>
+                    <li> CSS </li>
+                    <li> JavaScript </li>
+
+                  </ul>
+                </div>
+              </div>
+            </FadeInSection>
+          </div>
+
+        </section>
         {/* CONTACT SECTION */}
         <section id="contact" className="section contact-section">
           <div className="container">
@@ -256,7 +337,39 @@ const App = () => {
                 Ya sea que tengas una pregunta o simplemente quieras saludar, ¡haré lo posible por responderte!
               </p>
               <p className="contact-desc-mail"> email: guzmanemi@proton.me </p>
-              <a href="mailto:guzmanemi@proton.me" className="btn contact-btn">Saludar</a>
+              <div className="social-contact-links">
+                <a href="mailto:guzmanemi@proton.me" className="btn contact-btn">
+                  <span className="btn-icon">👋</span> Saludar
+                </a>
+                <a href="/cv_emilio_guzman.pdf" download="cv_emilio_guzman.pdf" className="btn contact-btn" aria-label="Descargar CV">
+                  <span className="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </span>
+                  CV
+                </a>
+                <a href="https://github.com/emiliooarrig" target="_blank" rel="noreferrer" className="btn contact-btn" aria-label="GitHub">
+                  <span className="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5 0-1.4-.5-2.5-1.5-3.5.1-.4.5-1.5-.1-3.1 0 0-1-.3-3.3 1.2a11 11 0 0 0-6 0C6.7 1.6 5.7 1.9 5.7 1.9c-.6 1.6-.2 2.7-.1 3.1-1 1-1.5 2.1-1.5 3.5 0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"></path>
+                    </svg>
+                  </span>
+                  GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/emilioguzmn/" target="_blank" rel="noreferrer" className="btn contact-btn" aria-label="LinkedIn">
+                  <span className="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </span>
+                  LinkedIn
+                </a>
+              </div>
             </FadeInSection>
           </div>
         </section>
@@ -266,245 +379,7 @@ const App = () => {
         <p> <span>&copy;</span> 2026 Emilio Guzmán | Hecho con ❤️ en React </p>
       </footer>
 
-      <style>{`
-        .app-container {
-          width: 100%;
-        }
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          background: rgba(10, 25, 47, 0.85);
-          backdrop-filter: blur(10px);
-          z-index: 10;
-          height: 80px;
-          display: flex;
-          align-items: center;
-          box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
-        }
-        .nav-content {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-        }
-        .logo {
-          color: var(--accent);
-          font-family: var(--font-mono);
-          font-weight: bold;
-          font-size: 1.5rem;
-          cursor: pointer;
-        }
-        .nav-links {
-          display: flex;
-          gap: 2rem;
-        }
-        .nav-link {
-          background: none;
-          border: none;
-          color: var(--text-primary);
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
-          cursor: pointer;
-          transition: color 0.3s;
-        }
-        .nav-link:hover {
-          color: var(--accent);
-        }
-        .nav-number {
-          color: var(--accent);
-          margin-right: 5px;
-        }
-        
-        .hero-intro {
-          color: var(--accent);
-          font-family: var(--font-mono);
-          margin-bottom: 1.5rem;
-          font-size: 1.1rem;
-        }
-        .hero-name {
-          font-size: clamp(40px, 8vw, 80px);
-          font-weight: 600;
-          color: var(--text-primary);
-          line-height: 1.1;
-        }
-        .hero-subtitle {
-          font-size: clamp(30px, 7vw, 70px);
-          font-weight: 600;
-          color: var(--text-secondary);
-          line-height: 1.1;
-          margin-bottom: 1.5rem;
-        }
-        .hero-desc {
-          max-width: 540px;
-          font-size: 1.1rem;
-          color: var(--text-secondary);
-          margin-bottom: 3rem;
-        }
-        .accent-text {
-          color: var(--accent);
-        }
 
-        .section-number {
-          color: var(--accent);
-          font-family: var(--font-mono);
-          font-size: 1.5rem;
-          margin-right: 10px;
-        }
-        
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .skill-category h3 {
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-        .skill-item {
-            margin-bottom: 0; /* Removed bottom margin */
-        }
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .skill-tag {
-            background-color: rgba(100, 255, 218, 0.05); /* Slight accent tint */
-            color: var(--text-primary);
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-            border: 1px solid var(--text-secondary); /* Subtle border */
-        }
-        .skill-tag:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background-color: rgba(100, 255, 218, 0.1);
-            transform: translateY(-2px);
-        }
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(140px, 200px));
-            gap: 0 10px;
-            padding: 0;
-            margin: 20px 0 0 0;
-            overflow: hidden;
-            list-style: none;
-        }
-        .skills-list li {
-            position: relative;
-            margin-bottom: 10px;
-            padding-left: 20px;
-            font-family: var(--font-mono);
-            font-size: 13px;
-        }
-        .skills-list li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 15px;
-          margin-top: 2rem;
-        }
-        .project-card {
-          background-color: #112240;
-          padding: 2rem 1.75rem;
-          border-radius: 4px;
-          transition: transform 0.25s, box-shadow 0.25s;
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-        .project-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-        }
-        .project-header {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 2rem;
-        }
-        .folder-icon {
-          color: var(--accent);
-          font-size: 40px;
-        }
-        .project-title {
-          color: var(--text-primary);
-          font-size: 1.4rem;
-          margin-bottom: 10px;
-        }
-        .project-desc {
-          color: var(--text-secondary);
-          font-size: 1rem;
-          margin-bottom: 20px;
-          flex-grow: 1;
-        }
-        .project-tech-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
-          color: var(--text-secondary);
-        }
-        
-        /* Contact */
-        .contact-section {
-          text-align: center;
-          align-items: center; /* flex item override if needed */
-        }
-        .contact-section .container {
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-        }
-        .section-number-center {
-          color: var(--accent);
-          font-family: var(--font-mono);
-          margin-bottom: 1rem;
-        }
-        .contact-title {
-          font-size: clamp(40px, 5vw, 60px);
-          margin-bottom: 1rem;
-          color: var(--text-primary);
-        }
-        .contact-desc {
-          font-size: 1.1rem;
-          color: var(--text-secondary);
-          margin-bottom: 3rem;
-        }
-
-        .contact-desc-mail {
-          font-size: 1.1rem;
-          color: var(--accent);
-          margin-bottom: 3rem;
-          font-weight: bold;
-        }
-
-        .contact-btn {
-          padding: 1.25rem 1.75rem;
-        }
-
-        .footer {
-          padding: 40px;
-          text-align: center;
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
-          color: var(--text-secondary);
-          background-color: #112240; /* Darker than main bg */
-        }
-      `}</style>
     </div>
   );
 }
